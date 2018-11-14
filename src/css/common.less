@@ -1,0 +1,129 @@
+// 发布文章和添加分类 切换
+.article-t {
+    line-height: 50px;
+    .tag-toggle {
+        display: flex;
+        justify-content: center;
+        .toggle-item {
+            position: relative;
+            width: 50%;
+            text-align: center;
+        }
+        .select {
+            color: #009ffb;
+        }
+        .select::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 3px;
+            background-color: #009ffb;
+        }
+    }
+    .tag-toggle::after {
+        border-color: #ddd;
+    }
+}
+
+// 文章标题  文章分类  
+.p-article-item {
+    width: 100%;
+    .label-b {
+        margin: 10px 0;
+    }
+    .item-dt {
+        font-size: 15px;
+        line-height: 2;
+    }
+    .input-b {
+        padding: 0 20px;
+        input {
+            width: 100%;
+            height: 45px;
+            padding: 0 10px;
+            border: none;
+            font-size: 16px;
+            background-color: #f5f5f5;
+        }
+    }
+}
+
+// 发布按钮
+.submit-btn {
+    width: 100%;
+    margin-top: 60px;
+    display: inline-block;
+    padding: 0 20px;
+    .submit-form {
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 15px;
+        height: 35px;
+        color: #fff;
+        background-color: #009ffb;
+    }
+}
+
+// 文章细节
+.articles-detail {
+    display: flex;
+    .d-item-b {
+        padding: 0 10px;
+        img {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            vertical-align: sub;
+        }
+        label {
+            font-size: 14px;
+            color: #707070;
+        }
+    }
+}
+
+// 文章精选评论
+.article-comment {
+    background-color: #f7f7f7;
+    .art-title {
+        line-height: 2;
+        padding: 0 20px;
+        .art-left {
+            color: #a0a0a0;
+        }
+    }
+    .comment-list {
+        .comment-item {
+            display: flex;
+            padding: 0 20px 10px;
+            margin-top: 5px;
+            img {
+                width: 40px;
+                height: 40px;
+                margin-right: 5px;
+            }
+            .com-right {
+                h3 {
+                    font-size: 16px;
+                    line-height: 1.5;
+                }
+                .com-student {
+                    font-size: 13px;
+                    line-height: 1.5;
+                    color: #a0a0a0;
+                    em {}
+                    span {}
+                }
+                .com-detail {
+                    font-size: 16px;
+                    line-height: 1.1;
+                    word-break: break-all;
+                }
+            }
+        }
+    }
+}

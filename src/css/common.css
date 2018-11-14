@@ -1,0 +1,114 @@
+.article-t {
+  line-height: 50px;
+}
+.article-t .tag-toggle {
+  display: flex;
+  justify-content: center;
+}
+.article-t .tag-toggle .toggle-item {
+  position: relative;
+  width: 50%;
+  text-align: center;
+}
+.article-t .tag-toggle .select {
+  color: #009ffb;
+}
+.article-t .tag-toggle .select::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background-color: #009ffb;
+}
+.article-t .tag-toggle::after {
+  border-color: #ddd;
+}
+.p-article-item {
+  width: 100%;
+}
+.p-article-item .label-b {
+  margin: 10px 0;
+}
+.p-article-item .item-dt {
+  font-size: 15px;
+  line-height: 2;
+}
+.p-article-item .input-b {
+  padding: 0 20px;
+}
+.p-article-item .input-b input {
+  width: 100%;
+  height: 45px;
+  padding: 0 10px;
+  border: none;
+  font-size: 16px;
+  background-color: #f5f5f5;
+}
+.submit-btn {
+  width: 100%;
+  margin-top: 60px;
+  display: inline-block;
+  padding: 0 20px;
+}
+.submit-btn .submit-form {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 15px;
+  height: 35px;
+  color: #fff;
+  background-color: #009ffb;
+}
+.articles-detail {
+  display: flex;
+}
+.articles-detail .d-item-b {
+  padding: 0 10px;
+}
+.articles-detail .d-item-b img {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  vertical-align: sub;
+}
+.articles-detail .d-item-b label {
+  font-size: 14px;
+  color: #707070;
+}
+.article-comment {
+  background-color: #f7f7f7;
+}
+.article-comment .art-title {
+  line-height: 2;
+  padding: 0 20px;
+}
+.article-comment .art-title .art-left {
+  color: #a0a0a0;
+}
+.article-comment .comment-list .comment-item {
+  display: flex;
+  padding: 0 20px 10px;
+  margin-top: 5px;
+}
+.article-comment .comment-list .comment-item img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+.article-comment .comment-list .comment-item .com-right h3 {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.article-comment .comment-list .comment-item .com-right .com-student {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a0a0a0;
+}
+.article-comment .comment-list .comment-item .com-right .com-detail {
+  font-size: 16px;
+  line-height: 1.1;
+  word-break: break-all;
+}

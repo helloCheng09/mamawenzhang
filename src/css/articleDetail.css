@@ -1,0 +1,28 @@
+@import "../css/depend/mReset.css";
+@import "../css/common.css";
+#artDetWrap .article-show .article-head {
+  padding: 10px 10px 5px;
+}
+#artDetWrap .article-show .article-head h3 {
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 1.2;
+}
+#artDetWrap .article-show .article-head::after {
+  border-color: #ddd;
+}
+#artDetWrap .article-show .main-text {
+  padding: 10px 10px 5px;
+}
+#artDetWrap .article-show .main-text p {
+  font-size: 16px;
+  line-height: 1.3;
+}
+#artDetWrap .article-show .main-text p {
+  display: inline-block;
+}
+#artDetWrap .article-show .main-text p img {
+  display: block;
+  width: 80%;
+  margin: 10px auto;
+}

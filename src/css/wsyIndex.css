@@ -1,0 +1,17 @@
+@import "../css/depend/mReset.css";
+@import "../css/common.css";
+#wsyIndexWrap .wsy-top-banner .swiper-container {
+  height: 180px;
+}
+#wsyIndexWrap .wsy-top-banner .swiper-slide {
+  height: 180px;
+}
+#wsyIndexWrap .wsy-top-banner .img-box {
+  height: 180px;
+}
+#wsyIndexWrap .wsy-top-banner .img-box .img-detail {
+  height: 180px;
+  background-size: cover;
+  background-position: 50%;
+  background-repeat: no-repeat;
+}

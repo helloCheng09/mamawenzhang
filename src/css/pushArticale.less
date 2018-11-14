@@ -1,0 +1,96 @@
+@import "../css/depend/mReset.css";
+@import "../css/common.css";
+#pushArticle {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; // background: #f7f7f7;
+    .main-container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        .p-article-p {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin: 10px 20px 20px;
+            .p-article-b {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            .article-form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .layui-input-inline {
+                margin: 0;
+                padding: 0 20px;
+                .layui-input {
+                    height: 45px;
+                    border: none;
+                    font-size: 16px;
+                    background-color: #f5f5f5;
+                }
+                .layui-form-select dl dd.layui-this {
+                    background-color: #009ffb;
+                }
+            }
+            .baidu-editor {
+                height: 100px;
+                background-color: #f5f5f5;
+            }
+            .fenlei-tags {
+                margin: 5px 10px 20px;
+                .tags-list {
+                    display: flex;
+                    flex-wrap: wrap;
+                    .tags-item {
+                        width: 33.33%;
+                        line-height: 50px;
+                        border: 0.5px solid #fff;
+                        background-color: #009ffb;
+                    }
+                    .tags-text {
+                        text-align: center;
+                        font-size: 16px;
+                        color: #fff;
+                    }
+                    .select {
+                        background-color: #005a8f;
+                    }
+                }
+            }
+            .articles-list-p {
+                flex: 1;
+                background-color: #f7f7f7;
+                .articles-list-b {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    .articles-list {}
+                    .articles-item {
+                        margin-top: 1px;
+                        padding: 10px 10px 4px;
+                        background-color: #fff;
+                    }
+                    a {
+                        display: block;
+                    }
+                    dt {
+                        font-size: 20px;
+                        line-height: 2;
+                    }
+                    dd {
+                        font-size: 16px;
+                        padding: 0 10px 5px;
+                        color: #707070;
+                    }
+                }
+            }
+        }
+        .p-fenlei-p {
+            margin: 0;
+        }
+    }
+}
