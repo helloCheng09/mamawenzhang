@@ -1,5 +1,12 @@
 @import "../css/depend/mReset.css";
 @import "../css/common.css";
+#artDetWrap .article-detail-b {
+  min-height: 100vh;
+  background-color: #f7f7f7;
+}
+#artDetWrap .article-show {
+  background-color: #fff;
+}
 #artDetWrap .article-show .article-head {
   padding: 10px 10px 5px;
 }

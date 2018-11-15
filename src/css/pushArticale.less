@@ -17,15 +17,39 @@
                 flex: 1;
                 display: flex;
                 flex-direction: column;
+                .layui-input-block:nth-of-type(1) {
+                    .layui-select-title {
+                        padding-right: 6px;
+                    }
+                }
+                .layui-input-block:nth-of-type(2) {
+                    .layui-select-title {
+                        padding-left: 6px;
+                    }
+                }
+                .layui-form-item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0 20px;
+                    margin-bottom: 0;
+                    .layui-input-block {
+                        margin: 0;
+                    }
+                    .layui-inline {
+                        margin-bottom: 0;
+                    }
+                }
             }
             .article-form {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
+                .ayui-anim {
+                    z-index: 99999;
+                }
             }
-            .layui-input-inline {
+            .layui-input-block {
                 margin: 0;
-                padding: 0 20px;
                 .layui-input {
                     height: 45px;
                     border: none;
@@ -34,6 +58,9 @@
                 }
                 .layui-form-select dl dd.layui-this {
                     background-color: #009ffb;
+                }
+                .layui-form-select dl{
+                    z-index: 99999;
                 }
             }
             .baidu-editor {
@@ -69,19 +96,44 @@
                     display: flex;
                     flex-direction: column;
                     .articles-list {}
+                    .articles-bar-b{
+                        height: 135px;
+                        overflow: hidden;
+                    }
                     .articles-item {
-                        margin-top: 1px;
-                        padding: 10px 10px 4px;
+                        display: flex; // transform: translateX(-100px);
+                        overflow-x: auto;
+                        padding-bottom: 20px;
+                        margin-top: 1px; // padding-bottom: 4px;
+                        scroll-behavior: smooth;
+                        -webkit-overflow-scrolling: touch;
                         background-color: #fff;
+                    }
+                    .delet-bar {
+                        height: 135px;
+                        .delet-text { 
+                            width: 80px;
+                            line-height: 135px;
+                            font-size: 16px;
+                            text-align: center;
+                            height: 100%;
+                            background-color: red;
+                            color: #fff;
+                        }
                     }
                     a {
                         display: block;
+                        width: 100vw;
                     }
                     dt {
+                        width: 100vw;
+                        padding: 0 10px;
                         font-size: 20px;
                         line-height: 2;
-                    }
+                    } 
                     dd {
+                        
+                        min-height: 68px;
                         font-size: 16px;
                         padding: 0 10px 5px;
                         color: #707070;
