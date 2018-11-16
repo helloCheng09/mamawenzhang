@@ -7,10 +7,14 @@
     <title>文章详情</title>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- css -->
     <link rel="stylesheet" href="../css/articleDetail.css?t=<?php echo $tamptime; ?>">
+    <!-- js -->
+    <script src="../js/depend/jQuery.min.js" type="text/javascript"></script>
+    <script src="../js/depend/autoTextarae.js" type="text/javascript"></script>
+
 </head>
 
 <body>
@@ -52,21 +56,39 @@
                     <span class="art-left">精选留言</span>
                 </div>
                 <div class="comment-list">
-                    <div class="comment-item">
-                        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2175610530,2932833450&fm=27&gp=0.jpg" alt="" class="com-img">
+                    <div class="comment-item" data-id="88">
+                        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2175610530,2932833450&fm=27&gp=0.jpg"
+                            alt="" class="com-img">
                         <div class="com-right">
-                            <h3>我是小明爸爸</h3>
-                            <div class="com-student">
-                                <em>绑定学生：</em>
-                                <span>小明</span>
+                            <div class="com-p">
+                                <div class="com-b">
+                                    <h3>我是小明爸爸</h3>
+                                    <div class="com-student">
+                                        <em>绑定学生：</em>
+                                        <span>小明</span>
+                                    </div>
+                                </div>
+                                <div class="sh-b">
+                                    <div class="daishen">
+                                        <div class="ds-btn" data-result="0">
+                                            删除
+                                        </div>
+                                        <div class="ds-btn" data-result="1">
+                                            通过
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="com-detail">
                                 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                             </div>
                         </div>
                     </div>
                     <div class="comment-item">
-                        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2175610530,2932833450&fm=27&gp=0.jpg" alt="" class="com-img">
+                        <img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2175610530,2932833450&fm=27&gp=0.jpg"
+                            alt="" class="com-img">
                         <div class="com-right">
                             <h3>我是小明爸爸</h3>
                             <div class="com-student">
@@ -79,12 +101,31 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="liuyan-p">
+                    <!-- 发布留言 -->
+                    <div class="liuyan-btn">发布留言</div>
+                    <!-- 评论文章 -->
+                    <div class="com-form" style="display:none;">
+                        <div class="close-span"></div>
+                        <form action="" method="" class="form-item">
+                            <div class="textarae">
+                                <textarea name="" id="" cols="" rows="" placeholder="留言将筛选后显示，对所有人可见"></textarea>
+                            </div>
+                            <div class="submit-btn">
+                                <input type="button" value="提  交" class="submit-form">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
             </div>
-
         </div>
-
     </div>
 
+    <!-- js -->
+    <script src="../js/index.js?t=<?php echo $tamptime; ?>" type="text/javascript"></script>
+    <script src="../js/depend/layui/layui.all.js" type="text/javascript"></script>
 </body>
 
 </html>

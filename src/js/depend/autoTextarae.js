@@ -66,4 +66,4 @@
 
         root.autoTextarea = autoTextarea
 
-}(window.Zepto, window.topic || (window.topic = {})))
+}(window.Zepto, window.article || (window.article = {})))

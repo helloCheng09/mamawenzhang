@@ -4,10 +4,11 @@
 <html lang="zh_CN">
 
 <head>
-    <title>发布文章</title>
+    <title>微官网-主页</title>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- css -->
     <link rel="stylesheet" href="../css/wsyIndex.css?t=<?php echo $tamptime; ?>">
@@ -18,7 +19,7 @@
 </head>
 
 <body>
-    <section id="wsyIndexWrap">
+    <div id="wsyIndexWrap">
         <div class="wsy-top-banner">
             <div class="swiper-container swiper-container-horizontal">
                 <div class="swiper-wrapper">
@@ -45,8 +46,32 @@
             </div>
         </div>
 
-        <section class="main-section">
+        <section class="main-section" style="background-image:url(../img/bg.jpg)">
             <div class="menu-list">
+                <div class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div class="link-text">
+                            <div class="img-show" style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542124384922&di=fbfdb36370bf38970845978e7c806ce6&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1603%2F26%2Fc39%2F19646402_1458991616127_mthumb.jpg)"></div>
+                        </div>
+                    </a>
+                    <label for="分类">分类一</label>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div class="link-text">
+                            <div class="img-show" style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542124384922&di=fbfdb36370bf38970845978e7c806ce6&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1603%2F26%2Fc39%2F19646402_1458991616127_mthumb.jpg)"></div>
+                        </div>
+                    </a>
+                    <label for="分类">分类一</label>
+                </div>
+                <div class="menu-item">
+                    <a href="#" class="menu-link">
+                        <div class="link-text">
+                            <div class="img-show" style="background-image:url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1542124384922&di=fbfdb36370bf38970845978e7c806ce6&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fitbbs%2F1603%2F26%2Fc39%2F19646402_1458991616127_mthumb.jpg)"></div>
+                        </div>
+                    </a>
+                    <label for="分类">分类一</label>
+                </div>
                 <div class="menu-item">
                     <a href="#" class="menu-link">
                         <div class="link-text">
@@ -57,12 +82,12 @@
                 </div>
             </div>
         </section>
+        
 
+    </div>
 
-        </div>
-
-        <!-- js -->
-        <script src="../js/index.js?t=<?php echo $tamptime; ?>" type="text/javascript"></script>
+    <!-- js -->
+    <script src="../js/index.js?t=<?php echo $tamptime; ?>" type="text/javascript"></script>
 </body>
 
 </html>

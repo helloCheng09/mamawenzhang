@@ -5,6 +5,7 @@
 
 // 请求地址汇总
 let baseUrl = "http://www.mamawozaizhe.com/mobile2/wenzhang/"
+let baseDetUrl = "http://www.mamawozaizhe.com/mobile2/wenzhang/"
 let baseMock = "https://www.easy-mock.com/mock/5b9c69299c53ef2876d29227/list/"
 let urlObj = {
     // 分类地址
@@ -13,7 +14,13 @@ let urlObj = {
     deletUrl: "deleteAjax",
     // 提交新的文章
     submitUrl: "fabuAjax",
+    // 提交文章评论
+    subComment: "comAjax",
+    // 审核评论
+    shenheCom: "comStatusAjax",
 };
+
+
 
 // 缓存器
 let cachData = {};
@@ -28,7 +35,7 @@ let cachData = {};
     // 标签切换
     let tagToggle = (btn, panels) => {
         let curIndex
-        let lastIndex = 1
+        let lastIndex = 0
         $(btn).unbind()
         $(btn).on("click", function (e) {
             curIndex = $(this).index()
@@ -45,6 +52,29 @@ let cachData = {};
                 lastIndex = curIndex
             }
         })
+
+    }
+    // 标签切换
+    let newTagToggle = (btn , styleEle, panels) => {
+        let curIndex
+        let lastIndex = 0
+        $(btn).unbind()
+        $(btn).on("click", function (e) {
+            curIndex = $(this).index()
+            if (curIndex === lastIndex) {
+                // 不变
+                return false;
+            } else {
+                // 样式  
+                $(this).find(styleEle).toggleClass("select")
+                $(btn).eq(lastIndex).find(styleEle).toggleClass("select")
+                // 展示
+                $(panels).eq(lastIndex).hide()
+                $(panels).eq(curIndex).show()
+                lastIndex = curIndex
+            }
+        })
+
     }
 
     // pushArticle页面内切换
@@ -58,9 +88,7 @@ let cachData = {};
     }
 
     // 前端防止表单重复提交
-    let onceSub = () => {
-
-    }
+    let onceSub = () => {}
 
     // 选择分类
     let clikMainFl = () => {
@@ -129,11 +157,52 @@ let cachData = {};
         $(".submit-btn").on("click", function () {
             var data = $('form').serializeArray();
             console.log(data)
+            $(".submit-btn").unbind()
             // 提交文章
             root.submitForm(data)
         })
     }
 
+    // 审核文章
+    let shenheClick = () => {
+        $(".ds-btn").on("click", function () {
+            let com_id = $(this).parents(".comment-item").attr("data-id")
+            let result = $(this).attr("data-result")
+            console.log(com_id)
+            root.sendShenhe(com_id, result)
+        })
+    }
+
+    // 发表文章评论
+    let showCommForm = () => {
+        $(".liuyan-btn").on("click", function () {
+            $(".com-form").css("display", "flex")
+            $(".close-span").on("click", function () {
+                $(this).parent(".com-form").css("display", "none")
+            })
+        })
+        root.onceSubmit(".submit-form", ".form-item")
+    }
+
+    // 防止重复提交
+    let onceSubmit = (btn, form) => {
+        $(".submit-form").on("click", function () {
+            if ($("textarea").val()) {
+                let data = $(".form-item").serializeArray();
+                root.sentForm(data)
+                $(btn).attr("disabled", "disabled");
+                console.log("教师提交提交")
+            } else {
+                layer.msg("您还没有写评论内容~~")
+                return false
+            }
+        })
+    }
+
+    root.newTagToggle = newTagToggle
+    root.onceSubmit = onceSubmit
+    root.showCommForm = showCommForm
+    root.shenheClick = shenheClick
     root.clickSub = clickSub
     root.deletArticle = deletArticle
     root.clikMainFl = clikMainFl
@@ -252,20 +321,20 @@ let cachData = {};
         switch (index) {
             case 0:
                 // 发布文章
-                // root.tagToggle(".toggle-item", ".p-article-p")
-                // console.log(root)
-                root.getFenlei()
-                // 提交文章
-                root.clickSub()
-                break
-            case 1:
-                // 发布文章
                 root.tagToggle(".toggle-item", ".p-article-p")
                 // console.log(1234)
                 // 文章列表 切换
                 root.tagToggle(".tags-item", ".articles-list-b")
                 // 删除文章
                 root.deletArticle()
+                break
+            case 1:
+                // 发布文章
+                // root.tagToggle(".toggle-item", ".p-article-p")
+                // console.log(root)
+                root.getFenlei()
+                // 提交文章
+                root.clickSub()
                 break
         }
     }
@@ -302,7 +371,12 @@ let cachData = {};
                         icon: 1,
                         time: 1500
                     });
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1500);
+                    // clearTimeout(timer)
                 } else {
+                    root.clickSub()
                     layer.msg('文章发布失败~~', {
                         icon: 5,
                         time: 1500
@@ -332,7 +406,7 @@ let cachData = {};
 
     // 统一报错
     let error = () => {
-        layer.msg('网络连接失败', {
+        layer.msg('网络连接失败~~', {
             icon: 5
         });
     }
@@ -389,6 +463,72 @@ let cachData = {};
         })
     }
 
+    let lazyLoad = (id, page) => {
+        $.ajax({
+            url: baseUrl + 123,
+            type: "POST",
+            dataType: ""
+        })
+    }
+
+    // 发送审核文章请求给后台
+    let sendShenhe = (comId, result) => {
+        $.ajax({
+            url: baseDetUrl + urlObj.shenheCom,
+            type: "POST",
+            dataType: "JSON",
+            data: data = {
+                com_id: comId,
+                act: result
+            },
+            success: function (data) {
+                console.log(data)
+                console.log(data["code"])
+                if (data.code == 11) {
+                    layer.msg('审核通过！', {
+                        icon: 1,
+                        time: 1500
+                    });
+                } else if (data.code == 21) {
+                    layer.msg('删除成功！', {
+                        icon: 1,
+                        time: 1500
+                    });
+                }
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+
+            },
+            error: error
+        })
+    }
+
+    // 提交文章
+    let sentForm = (data) => {
+        console.log(data)
+        $.ajax({
+            url: baseDetUrl + urlObj.subComment,
+            type: "POST",
+            data: data,
+            success: function (data, code) {
+                console.log(data, code)
+                layer.msg('评论成功，等待管理员审核！', {
+                    icon: 1,
+                    time: 1500
+                });
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1500);
+
+            },
+            error: error
+        })
+    }
+
+    root.sentForm = sentForm
+    root.sendShenhe = sendShenhe
+    root.lazyLoad = lazyLoad
     root.sendDelet = sendDelet
     root.getSecFl = getSecFl
     root.getFenlei = getFenlei
@@ -403,19 +543,48 @@ let cachData = {};
 (function () {
     let root = window.article;
     if (document.getElementById('pushArticle')) {
+        // 管理员发布文章
+
         root.initFlFst()
         let initSection = (root.initPushArticle())
         root.showSection(initSection)
         root.returnSection()
 
     } else if (document.getElementById('wsyIndexWrap')) {
+        // 微官网主页
         // 轮播图实例
         var swiper = new Swiper('.swiper-container', {
             pagination: {
                 el: '.swiper-pagination',
                 dynamicBullets: true,
             },
+            loop: true,
+            autoplay: {
+                disableOnInteraction: false,
+            },
         });
 
+    } else if (document.getElementById('artDetWrap')) {
+        // 文章详情
+        root.shenheClick()
+        let textArea = document.getElemenstsByTagName("textarea")[0]
+        root.autoTextarea(textArea)
+        root.showCommForm()
+    } else if (document.getElementById('wgwListWrp')) {
+        // 微官网 二级分类列表
+        console.log("二级分类")
+        // 轮播图实例
+        var swiper = new Swiper('.swiper-container', {
+            pagination: {
+                el: '.swiper-pagination',
+                dynamicBullets: true,
+            },
+            loop: true,
+            autoplay: {
+                disableOnInteraction: false,
+            },
+        });
+        // 子分类切换
+        root.newTagToggle(".sec-item",".sec-btn", ".articles-list-b")
     }
 }());

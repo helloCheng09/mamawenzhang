@@ -80,13 +80,31 @@
         padding: 0 4px;
         img {
             display: inline-block;
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             vertical-align: sub;
         }
         label {
-            font-size: 14px;
+            display: inline-block;
+            width: 70%;
+            font-size: 12px;
+            vertical-align: middle;
             color: #707070;
+        }
+    }
+    .d-item-b:nth-of-type(1) {
+        label {}
+    }
+    .d-item-b:nth-of-type(2) {
+        width: 30%;
+        label {
+            width:80%;
+        }
+    }
+    .d-item-b:nth-of-type(3) {
+        width: 20%;
+        label {
+            width:50%;
         }
     }
     .d-item-b:nth-of-type(4) {
@@ -96,9 +114,70 @@
     }
 }
 
+// 文章列表
+.articles-list-p {
+    flex: 1;
+    background-color: #f7f7f7;
+    .articles-list-b {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        .articles-list {}
+        .articles-bar-b {
+            height: 135px;
+            overflow: hidden;
+        }
+        .articles-item {
+            display: flex; // transform: translateX(-100px);
+            overflow-x: auto;
+            padding-bottom: 20px;
+            margin-top: 1px; // padding-bottom: 4px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            background-color: #fff;
+        }
+        .delet-bar {
+            height: 135px;
+            .delet-text {
+                width: 80px;
+                line-height: 135px;
+                font-size: 16px;
+                text-align: center;
+                height: 100%;
+                background-color: red;
+                color: #fff;
+            }
+        }
+        a {
+            display: block;
+            width: 100vw;
+        }
+        dt {
+            width: 100vw;
+            padding: 0 10px;
+            font-size: 20px;
+            line-height: 2;
+        }
+        dd {
+            min-height: 68px;
+            font-size: 16px;
+            padding: 0 10px 5px;
+            line-height: 1.4;
+            color: #707070;
+        }
+    }
+}
+
 // 文章精选评论
 .article-comment {
+    padding-bottom: 10px;
     background-color: #f7f7f7;
+    .liuyan-btn {
+        font-size: 16px;
+        line-height: 3;
+        text-align: center;
+        color: #0a6499;
+    }
     .art-title {
         line-height: 2;
         padding: 0 20px;
@@ -117,6 +196,28 @@
                 margin-right: 5px;
             }
             .com-right {
+                flex: 1;
+                .com-p {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                .sh-b {
+                    .daishen {
+                        display: flex;
+                    }
+                }
+                .ds-btn {
+                    padding: 0 10px;
+                    line-height: 2;
+                    margin: 0 4px;
+                    border-radius: 4px;
+                    color: #fff;
+                    background-color: rgb(231, 47, 47);
+                }
+                .ds-btn:nth-of-type(2) {
+                    background-color: #009ffb;
+                }
                 h3 {
                     font-size: 16px;
                     line-height: 1.5;
