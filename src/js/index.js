@@ -55,7 +55,7 @@ let cachData = {};
 
     }
     // 标签切换
-    let newTagToggle = (btn , styleEle, panels) => {
+    let newTagToggle = (btn, styleEle, panels) => {
         let curIndex
         let lastIndex = 0
         $(btn).unbind()
@@ -567,7 +567,7 @@ let cachData = {};
     } else if (document.getElementById('artDetWrap')) {
         // 文章详情
         root.shenheClick()
-        let textArea = document.getElemenstsByTagName("textarea")[0]
+        let textArea = document.getElementsByTagName("textarea")[0]
         root.autoTextarea(textArea)
         root.showCommForm()
     } else if (document.getElementById('wgwListWrp')) {
@@ -585,6 +585,6 @@ let cachData = {};
             },
         });
         // 子分类切换
-        root.newTagToggle(".sec-item",".sec-btn", ".articles-list-b")
+        root.newTagToggle(".sec-item", ".sec-btn", ".articles-list-b")
     }
 }());
