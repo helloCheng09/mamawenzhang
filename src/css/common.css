@@ -26,6 +26,12 @@
 .article-t .tag-toggle::after {
   border-color: #ddd;
 }
+.text_none {
+  line-height: 2;
+  font-size: 16px;
+  text-align: center;
+  color: #808080;
+}
 .p-article-item {
   width: 100%;
 }

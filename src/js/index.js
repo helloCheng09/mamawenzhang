@@ -25,7 +25,7 @@ let urlObj = {
 // 缓存器
 let cachData = {};
 
-/****************************************************************************** */
+/****************************************************************************************************************** */
 /**
  * 点击
  * click.js
@@ -74,7 +74,6 @@ let cachData = {};
                 lastIndex = curIndex
             }
         })
-
     }
 
     // pushArticle页面内切换
@@ -98,8 +97,6 @@ let cachData = {};
         // } else {
         //     domId = "#selectSec"
         // }
-
-
         let ele_1 = $("#selectFst").next(".layui-unselect")
         ele_1.children(".layui-anim").children("dd").unbind()
         ele_1.children(".layui-anim").children("dd").on("click", function () {
@@ -222,6 +219,7 @@ let cachData = {};
     let renderFenlei = (index) => {
         index = Number(index)
         console.log(index)
+        var data
         if (index == 1) {
             data = cachData["fenlei"]
         } else {
@@ -237,8 +235,8 @@ let cachData = {};
         // $(".layui-input-block").eq(num).find(".layui-anim").empty()
         data.forEach(item => {
             let optionFst = `
-                <option value="${item["id"]}"  data-id="${item["id"]}">${item["name"]}</option>
-            `
+                    <option value="${item["id"]}"  data-id="${item["id"]}">${item["name"]}</option>
+                `
             let layOption = `
                 <dd lay-value="${item["id"]}"  data-id="${item["id"]}" class="">${item["name"]}</dd>
             `
@@ -364,7 +362,7 @@ let cachData = {};
             data: data,
             type: "POST",
             success: function (data, code) {
-                let status = Number(data["code"])
+                let status = Number(data.msg.code)
                 console.log(data)
                 if (status == 1) {
                     layer.msg('发布成功！！', {
@@ -544,9 +542,8 @@ let cachData = {};
     let root = window.article;
     if (document.getElementById('pushArticle')) {
         // 管理员发布文章
-
         root.initFlFst()
-        let initSection = (root.initPushArticle())
+        let initSection = root.initPushArticle()
         root.showSection(initSection)
         root.returnSection()
 
